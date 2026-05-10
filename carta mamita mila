@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartas Para Mamá</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#ffd6e7,#ffc2d1,#ffe5ec);
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes glow {
+      0%,100% { box-shadow: 0 0 25px rgba(255,255,255,0.4); }
+      50% { box-shadow: 0 0 45px rgba(255,105,180,0.8); }
+    }
+
+    @keyframes hearts {
+      0% {
+        transform: translateY(0px) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-500px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -50px;
+      color: rgba(255,0,100,0.5);
+      animation: hearts linear infinite;
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    .glass {
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corazones -->
+  <script>
+    for(let i=0;i<30;i++){
+      const heart=document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML='❤️';
+      heart.style.left=Math.random()*100+'vw';
+      heart.style.animationDuration=(4+Math.random()*6)+'s';
+      heart.style.animationDelay=Math.random()*5+'s';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <div class="min-h-screen p-6 flex flex-col items-center justify-center">
+
+    <div class="text-center mb-10 animate-pulse">
+      <h1 class="text-5xl md:text-7xl font-black text-rose-700 drop-shadow-lg">
+        ❤️ Para Las Mujeres Más Importantes ❤️
+      </h1>
+      <p class="text-xl text-rose-900 mt-4 font-semibold">
+        Gracias por tanto amor, apoyo y fuerza.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-7xl w-full">
+
+      <!-- Carta Mila -->
+      <div class="glass rounded-[35px] p-8 border border-white shadow-2xl relative overflow-hidden"
+        style="animation: float 5s ease-in-out infinite, glow 4s infinite;">
+
+        <!-- Pantalla inicial -->
+        <div id="introMila" class="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-600 z-20 flex flex-col items-center justify-center text-white transition-all duration-700">
+          <div class="text-7xl mb-6 animate-bounce">👑</div>
+          <h2 class="text-4xl md:text-5xl font-black text-center px-4">
+            Oprime Para Abrir Reina
+          </h2>
+          <p class="mt-4 text-xl text-center px-6">
+            Hay un mensaje especial para ti ❤️
+          </p>
+
+          <button onclick="abrirCartaMila()"
+            class="mt-8 bg-white text-rose-600 hover:scale-110 transition-all duration-300 px-10 py-5 rounded-full text-2xl font-black shadow-2xl">
+            🌹 Abrir Carta 🌹
+          </button>
+        </div>
+
+        <!-- Música -->
+        <audio id="musicaMila" loop>
+          <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+        </audio>
+
+        <!-- Contenido carta -->
+        <div id="contenidoMila" style="opacity:0; transition:1.5s;">
+          <div class="text-center mb-6">
+            <div class="text-6xl">🌹</div>
+            <h2 class="text-4xl font-black text-rose-700 mt-4">
+              Mamita Mila
+            </h2>
+          </div>
+
+          <p class="text-gray-800 text-lg leading-9 text-justify font-medium">
+            Mamita Mila…
+            <br><br>
+            Gracias por acompañarme desde que era pequeño.
+            Gracias por cada consejo, cada abrazo y cada sacrificio silencioso.
+            Tú ayudaste a formar al hombre que soy hoy.
+            <br><br>
+            Mucho de mi fuerza, de mis valores y de la manera en que enfrento la vida,
+            nacieron gracias a ti.
+            <br><br>
+            Nunca olvidaré todo el amor que sembraste en mí.
+            Pase lo que pase, siempre tendrás un lugar eterno dentro de mi corazón.
+            <br><br>
+            Gracias por cuidarme con ese amor tan puro y tan real.
+            <br><br>
+            Hoy quiero que sonrías y recuerdes algo:
+            eres una reina y una de las bendiciones más grandes que tengo en mi vida.
+          </p>
+
+          <div class="mt-8 text-center">
+            <button class="bg-rose-600 hover:scale-110 transition-all duration-300 text-white px-8 py-4 rounded-full text-xl font-bold shadow-2xl">
+              ❤️ Feliz Día De Las Madres ❤️
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function abrirCartaMila(){
+          document.getElementById('introMila').style.opacity='0';
+          document.getElementById('introMila').style.pointerEvents='none';
+          document.getElementById('contenidoMila').style.opacity='1';
+
+          const audio=document.getElementById('musicaMila');
+          audio.volume=0.5;
+          audio.play();
+        }
+      </script>
+
+      <!-- Carta Andrea -->
+      <div class="rounded-[35px] p-8 shadow-2xl text-white relative overflow-hidden"
+      style="background: linear-gradient(135deg,#7c3aed,#ec4899,#f43f5e); animation: float 6s ease-in-out infinite, glow 5s infinite;">
+
+        <div class="absolute top-0 left-0 w-72 h-72 bg-white opacity-20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-72 h-72 bg-pink-300 opacity-20 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10">
+          <div class="text-center mb-6">
+            <div class="text-6xl">👑</div>
+            <h2 class="text-4xl font-black mt-4">
+              Mamita Andrea
+            </h2>
+          </div>
+
+          <p class="text-lg leading-9 text-justify font-medium">
+            Mamita Andrea…
+            <br><br>
+            Quiero que siempre recuerdes lo orgulloso que estoy de ti.
+            Eres mi inspiración, mi motor y una de las razones por las que sigo adelante.
+            <br><br>
+            Tú conoces mis mejores momentos y también mis peores partes.
+            Aun así, jamás dejaste de creer en mí.
+            <br><br>
+            Gracias por escucharme, comprenderme y apoyarme incluso cuando ni yo mismo podía hacerlo.
+            <br><br>
+            Admiro profundamente la mujer fuerte que eres.
+            Tu manera de luchar y salir adelante me inspira todos los días.
+            <br><br>
+            Si hoy soy capaz de levantarme y seguir luchando,
+            es porque tuve la fortuna de tenerte en mi vida.
+          </p>
+
+          <div class="mt-8 text-center">
+            <button class="bg-white text-purple-700 hover:scale-110 transition-all duration-300 px-8 py-4 rounded-full text-xl font-bold shadow-2xl">
+              ✨ Mi Orgullo Eterno ✨
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14 text-center animate-bounce">
+      <p class="text-2xl font-black text-rose-800">
+        "El amor de una madre deja marcas eternas en el corazón."
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
